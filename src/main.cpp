@@ -3,6 +3,7 @@
 #include "MidSquareGenerator.cpp"
 #include "LinearCongruentialGenerator.cpp"
 #include "MixedCongruentialGenerator.cpp"
+#include "MultiplicativeCongruentialGenerator.cpp"
 
 int main() {
     MidSquareGenerator midSquare;
@@ -10,7 +11,9 @@ int main() {
 
     LinearCongruentialGenerator lcg(8121 ,28411, 134456);
 
-    MixedCongruentialGenerator mcg(5, 7, 8);
+    MixedCongruentialGenerator mg(5, 7, 8);
+
+    MultiplicativeCongruentialGenerator mcg(75, 0b10000000000000000 + 1);
 
     for (int i = 0; i < 10; i++){
         //lcg.printCurrentSeed();
