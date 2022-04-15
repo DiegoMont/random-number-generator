@@ -1,3 +1,6 @@
+#ifndef LINEAR_CONG
+#define LINEAR_CONG
+
 #include "SimpleGenerator.cpp"
 
 class LinearCongruentialGenerator: public SimpleGenerator {
@@ -16,3 +19,5 @@ class LinearCongruentialGenerator: public SimpleGenerator {
         this->x = (this->a * this->x + this->c) % m;
     }
 };
+
+#endif
