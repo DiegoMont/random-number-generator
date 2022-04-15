@@ -37,6 +37,8 @@ void UserInterface::startGeneratingNumbers(int selectedGenerator) {
         generator = UserInterface::createMidSquaresGenerator();
     else if(selectedGenerator == 2)
         generator = UserInterface::createLinearCongruential();
+    else if(selectedGenerator == 3)
+        generator = UserInterface::createMixedCongruential();
     gotoGeneratorMenu(generator);
 }
 
@@ -51,9 +53,12 @@ LinearCongruentialGenerator* UserInterface::createLinearCongruential() {
     scanf("%d", &option);
     long a, c, m;
     if(option != 'n') {
-        a = 8121;
-        c = 28411;
-        m = 134456;
+        printf("Ingrese el valor de a: ");
+        scanf("%ld", &a);
+        printf("Ingrese el valor de c: ");
+        scanf("%ld", &c);
+        printf("Ingrese el valor de m: ");
+        scanf("%ld", &m);
     } else {
         a = 8121;
         c = 28411;
@@ -61,6 +66,29 @@ LinearCongruentialGenerator* UserInterface::createLinearCongruential() {
     }
     LinearCongruentialGenerator* lcg = new LinearCongruentialGenerator(a, c, m);
     return lcg;
+}
+
+MixedCongruentialGenerator* UserInterface::createMixedCongruential() {
+    long a, c, m;
+    MixedCongruentialGenerator* mg;
+    bool validValues;
+    do {
+        validValues = true;
+        puts("Ingresa los valores de a, c y m");
+        printf("a: ");
+        scanf("%ld", &a);
+        printf("c: ");
+        scanf("%ld", &c);
+        printf("m: ");
+        scanf("%ld", &m);
+        try {
+            mg = new MixedCongruentialGenerator(a, c, m);
+        } catch(int e) {
+            validValues = false;
+            puts("Estos valores no pasan la prueba de Hull-Dobel");
+        }
+    } while (!validValues);
+    return mg;
 }
 
 void UserInterface::gotoGeneratorMenu(RandomGenerator* generator) {

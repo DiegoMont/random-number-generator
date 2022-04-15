@@ -18,6 +18,8 @@ namespace UserInterface {
 
     LinearCongruentialGenerator* createLinearCongruential();
 
+    MixedCongruentialGenerator* createMixedCongruential();
+
     void gotoGeneratorMenu(RandomGenerator* generator);
 
     void printGeneratorMenu();
