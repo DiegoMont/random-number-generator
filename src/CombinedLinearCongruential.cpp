@@ -1,8 +1,6 @@
 #ifndef COMB_CONG
 #define COMB_CONG
 
-#include <stdio.h>
-
 #include "RandomGenerator.cpp"
 #include "SimpleGenerator.cpp"
 
@@ -30,7 +28,8 @@ class CombinedLinearCongruential: public RandomGenerator {
                 x += generators[i]->getX();
         }
         x %= this->m;
-        printf("%lld\n", x);
+        if(x < 0) 
+            x = this->m + x;
         return 1.0 * x / (this->m - 1);
     }
 
