@@ -11,7 +11,7 @@ int main() {
 
     MixedCongruentialGenerator mg(5, 7, 8);
 
-    MultiplicativeCongruentialGenerator mcg(75, 0b10000000000000000 + 1);
+    MultiplicativeCongruentialGenerator mcg(75, 0b10000000000000001);
 
     LecuyerGenerator lg;
 

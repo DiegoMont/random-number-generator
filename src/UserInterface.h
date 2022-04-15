@@ -20,6 +20,8 @@ namespace UserInterface {
 
     MixedCongruentialGenerator* createMixedCongruential();
 
+    MultiplicativeCongruentialGenerator* createMultiplicativeCongruential();
+
     void gotoGeneratorMenu(RandomGenerator* generator);
 
     void printGeneratorMenu();

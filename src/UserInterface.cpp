@@ -39,6 +39,8 @@ void UserInterface::startGeneratingNumbers(int selectedGenerator) {
         generator = UserInterface::createLinearCongruential();
     else if(selectedGenerator == 3)
         generator = UserInterface::createMixedCongruential();
+    else if(selectedGenerator == 4)
+        generator = UserInterface::createMultiplicativeCongruential();
     gotoGeneratorMenu(generator);
 }
 
@@ -89,6 +91,27 @@ MixedCongruentialGenerator* UserInterface::createMixedCongruential() {
         }
     } while (!validValues);
     return mg;
+}
+
+MultiplicativeCongruentialGenerator* UserInterface::createMultiplicativeCongruential() {
+    long a, m;
+    MultiplicativeCongruentialGenerator* mcg;
+    bool validValues;
+    do {
+        validValues = true;
+        puts("Ingresa los valores de a y m");
+        printf("a: ");
+        scanf("%ld", &a);
+        printf("m: ");
+        scanf("%ld", &m);
+        try {
+            mcg = new MultiplicativeCongruentialGenerator(a, m);
+        } catch(int e) {
+            validValues = false;
+            puts("Valores incorrectos m > a");
+        }
+    } while (!validValues);
+    return mcg;
 }
 
 void UserInterface::gotoGeneratorMenu(RandomGenerator* generator) {
