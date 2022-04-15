@@ -1,11 +1,13 @@
 #include <iostream>
 
-#include "Random.cpp"
+#include "MidSquareGenerator.cpp"
 
 int main() {
-    Random r;
+    MidSquareGenerator midSquare;
+    midSquare.setSeed(3708);
+
     for (int i = 0; i < 10; i++){
-        //std::cout << r.getX() << std::endl;
-        std::cout << r.next() << std::endl;
+        midSquare.printCurrentSeed();
+        std::cout << midSquare.next() << std::endl;
     }
 }
