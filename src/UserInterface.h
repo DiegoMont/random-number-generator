@@ -17,4 +17,8 @@ namespace UserInterface {
     MidSquareGenerator* createMidSquaresGenerator();
 
     LinearCongruentialGenerator* createLinearCongruential();
+
+    void gotoGeneratorMenu(RandomGenerator* generator);
+
+    void printGeneratorMenu();
 }
