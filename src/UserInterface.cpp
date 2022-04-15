@@ -41,6 +41,8 @@ void UserInterface::startGeneratingNumbers(int selectedGenerator) {
         generator = UserInterface::createMixedCongruential();
     else if(selectedGenerator == 4)
         generator = UserInterface::createMultiplicativeCongruential();
+    else if(selectedGenerator == 5)
+        generator = UserInterface::createLecuyerGenerator();
     gotoGeneratorMenu(generator);
 }
 
@@ -112,6 +114,11 @@ MultiplicativeCongruentialGenerator* UserInterface::createMultiplicativeCongruen
         }
     } while (!validValues);
     return mcg;
+}
+
+LecuyerGenerator* UserInterface::createLecuyerGenerator() {
+    LecuyerGenerator* lg = new LecuyerGenerator();
+    return lg;
 }
 
 void UserInterface::gotoGeneratorMenu(RandomGenerator* generator) {

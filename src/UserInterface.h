@@ -22,6 +22,8 @@ namespace UserInterface {
 
     MultiplicativeCongruentialGenerator* createMultiplicativeCongruential();
 
+    LecuyerGenerator* createLecuyerGenerator();
+
     void gotoGeneratorMenu(RandomGenerator* generator);
 
     void printGeneratorMenu();
