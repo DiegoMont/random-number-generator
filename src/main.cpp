@@ -1,13 +1,10 @@
 #include <iostream>
 
-#include "MidSquareGenerator.cpp"
-#include "LinearCongruentialGenerator.cpp"
-#include "MixedCongruentialGenerator.cpp"
-#include "MultiplicativeCongruentialGenerator.cpp"
-#include "LecuyerGenerator.cpp"
+#include "UserInterface.cpp"
 
 int main() {
-    MidSquareGenerator midSquare;
+    UserInterface::startApp();
+    /* MidSquareGenerator midSquare;
     midSquare.setSeed(3708);
 
     LinearCongruentialGenerator lcg(8121 ,28411, 134456);
@@ -21,5 +18,5 @@ int main() {
     for (int i = 0; i < 10; i++){
         //lg.printCurrentSeed();
         std::cout << lg.next() << std::endl;
-    }
+    } */
 }
