@@ -22,6 +22,10 @@ class SimpleGenerator: public RandomGenerator {
         return 1.0 * this->x / (this->m - 1);
     }
 
+    long getX() {
+        return this->x;
+    }
+
     protected:
     virtual void setNextX() = 0;
 };

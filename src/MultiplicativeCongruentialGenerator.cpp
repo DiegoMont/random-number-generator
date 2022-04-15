@@ -1,3 +1,6 @@
+#ifndef MULT_CONG
+#define MULT_CONG
+
 #include "LinearCongruentialGenerator.cpp"
 
 class MultiplicativeCongruentialGenerator: public LinearCongruentialGenerator {
@@ -13,3 +16,5 @@ class MultiplicativeCongruentialGenerator: public LinearCongruentialGenerator {
     }
 
 };
+
+#endif

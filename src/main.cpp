@@ -4,6 +4,7 @@
 #include "LinearCongruentialGenerator.cpp"
 #include "MixedCongruentialGenerator.cpp"
 #include "MultiplicativeCongruentialGenerator.cpp"
+#include "LecuyerGenerator.cpp"
 
 int main() {
     MidSquareGenerator midSquare;
@@ -15,8 +16,10 @@ int main() {
 
     MultiplicativeCongruentialGenerator mcg(75, 0b10000000000000000 + 1);
 
+    LecuyerGenerator lg;
+
     for (int i = 0; i < 10; i++){
-        //lcg.printCurrentSeed();
-        std::cout << mcg.next() << std::endl;
+        //lg.printCurrentSeed();
+        std::cout << lg.next() << std::endl;
     }
 }
