@@ -1,3 +1,6 @@
+#ifndef SIMPL_GEN
+#define SIMPL_GEN
+
 #include <stdio.h>
 
 #include "RandomGenerator.cpp"
@@ -22,3 +25,5 @@ class SimpleGenerator: public RandomGenerator {
     protected:
     virtual void setNextX() = 0;
 };
+
+#endif

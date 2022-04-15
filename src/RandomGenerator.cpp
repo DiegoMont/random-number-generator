@@ -1,3 +1,6 @@
+#ifndef RAND_GEN
+#define RAND_GEN
+
 #include <chrono>
 
 class RandomGenerator {
@@ -31,3 +34,5 @@ class RandomGenerator {
     }
 
 };
+
+#endif
