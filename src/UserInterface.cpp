@@ -56,7 +56,7 @@ LinearCongruentialGenerator* UserInterface::createLinearCongruential() {
     printf("Ingresa [1] para usar los valores predefinidos (a=8121, c=28411, m=134456): ");
     scanf("%d", &option);
     long a, c, m;
-    if(option != 'n') {
+    if(option != 1) {
         printf("Ingrese el valor de a: ");
         scanf("%ld", &a);
         printf("Ingrese el valor de c: ");
@@ -128,14 +128,10 @@ void UserInterface::gotoGeneratorMenu(RandomGenerator* generator) {
         scanf("%d", &option);
         if(option == 1)
             printf("\n%f\n\n", generator->next());
-        else if(option == 2) {
-            long newSeed;
-            printf("Ingrese el valor de la nueva semilla: ");
-            scanf("%ld", &newSeed);
-            SimpleGenerator* simpleGenerator = dynamic_cast<SimpleGenerator*> (generator);
-            if(simpleGenerator != nullptr)
-                simpleGenerator->setSeed(newSeed);
-        }
+        else if(option == 2)
+            UserInterface::chooseSeed(generator);
+        else if(option == 3)
+            UserInterface::evaluateGenerator(generator);
     }
 }
 
@@ -146,4 +142,25 @@ void UserInterface::printGeneratorMenu() {
     puts("3. Evaluar");
     puts("4. Salir");
     printf("Ingresa una opción: ");
+}
+
+void UserInterface::chooseSeed(RandomGenerator* generator) {
+    long newSeed;
+    printf("Ingrese el valor de la nueva semilla: ");
+    scanf("%ld", &newSeed);
+    SimpleGenerator* simpleGenerator = dynamic_cast<SimpleGenerator*> (generator);
+    if(simpleGenerator != nullptr)
+        simpleGenerator->setSeed(newSeed);
+}
+
+void UserInterface::evaluateGenerator(RandomGenerator* generator) {
+    size_t n;
+    double a;
+    printf("Cuántos números quiere generar para hacer la prueba [N]: ");
+    scanf("%ld", &n);
+    printf("Ingrese un valor de significancia [a]: ");
+    scanf("%lf", &a);
+    puts("\nKolmogorov-Smirnov");
+    KolmogorovSmirnovTest test(n, generator, a);
+    test.print();
 }

@@ -2,14 +2,12 @@
 
 #include "UserInterface.cpp"
 
-#include "KolmogorovSmirnovTest.cpp"
-
 int main() {
     LinearCongruentialGenerator lcg(8121 ,28411, 134456);
     LecuyerGenerator lg;
     KolmogorovSmirnovTest test((size_t)500, &lcg, 0.2);
-    test.print();
-    //UserInterface::startApp();
+    //test.print();
+    UserInterface::startApp();
     /* MidSquareGenerator midSquare;
     midSquare.setSeed(3708);
 

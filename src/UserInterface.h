@@ -4,6 +4,7 @@
 #include "MixedCongruentialGenerator.cpp"
 #include "MultiplicativeCongruentialGenerator.cpp"
 #include "LecuyerGenerator.cpp"
+#include "KolmogorovSmirnovTest.cpp"
 
 namespace UserInterface {
     void startApp();
@@ -27,4 +28,8 @@ namespace UserInterface {
     void gotoGeneratorMenu(RandomGenerator* generator);
 
     void printGeneratorMenu();
+
+    void chooseSeed(RandomGenerator* generator);
+
+    void evaluateGenerator(RandomGenerator* generator);
 }
