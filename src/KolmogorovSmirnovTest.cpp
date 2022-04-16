@@ -1,24 +1,14 @@
-#include "RandomGenerator.cpp"
+#include "GeneratorUniformityTest.cpp"
 
-#include <cmath>
-#include <stdlib.h>
-#include <queue>
-
-class KolmogorovSmirnovTest {
+class KolmogorovSmirnovTest: public GeneratorUniformityTest {
     private:
-    double* r;
-    size_t n;
-    double a;
     double dPlus;
     double dMinus;
     double d;
     double da;
 
     public:
-    KolmogorovSmirnovTest(size_t n, RandomGenerator* generator, double a) {
-        this->a = a;
-        this->n = n;
-        generateAndSortR(generator);
+    KolmogorovSmirnovTest(size_t n, RandomGenerator* generator, double a): GeneratorUniformityTest(n, generator, a) {
         calculateD();
         calculateDa();
     }
@@ -31,18 +21,6 @@ class KolmogorovSmirnovTest {
     }
 
     private:
-    void generateAndSortR(RandomGenerator* generator) {
-        using namespace std;
-        priority_queue<double, vector<double>, greater<double>> q;
-        for (size_t i = 0; i < this->n; i++)
-            q.push(generator->next());
-        this->r = new double[this->n];
-        for (size_t i = 0; i < this->n; i++) {
-            this->r[i] = q.top();
-            q.pop();
-        }
-    }
-
     void calculateD() {
         double i = 1;
         this->dPlus = 0;
