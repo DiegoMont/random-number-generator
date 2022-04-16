@@ -2,7 +2,11 @@
 
 #include "UserInterface.cpp"
 
+#include "KolmogorovSmirnovTest.cpp"
+
 int main() {
+    LinearCongruentialGenerator lcg(8121 ,28411, 134456);
+    KolmogorovSmirnovTest test((size_t)500, &lcg);
     UserInterface::startApp();
     /* MidSquareGenerator midSquare;
     midSquare.setSeed(3708);
