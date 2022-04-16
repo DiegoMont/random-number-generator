@@ -8,15 +8,26 @@ class KolmogorovSmirnovTest {
     private:
     double* r;
     size_t n;
+    double a;
     double dPlus;
     double dMinus;
     double d;
+    double da;
 
     public:
-    KolmogorovSmirnovTest(size_t n, RandomGenerator* generator) {
+    KolmogorovSmirnovTest(size_t n, RandomGenerator* generator, double a) {
+        this->a = a;
         this->n = n;
         generateAndSortR(generator);
         calculateD();
+        calculateDa();
+    }
+
+    void print() {
+        if(this->d > this->da)
+            printf("D = %.3f > Da = %.3f \nLa hipótesis nula es rechazada\n", this->d, this->da);
+        else
+            printf("D = %.3f <= Da = %.3f \nLa hipótesis nula es aceptada. La muestra proviene de la distribución uniforme\n", this->d, this->da);
     }
 
     private:
@@ -33,7 +44,7 @@ class KolmogorovSmirnovTest {
     }
 
     void calculateD() {
-        int i = 1;
+        double i = 1;
         this->dPlus = 0;
         this->dMinus = 0;
         for (size_t j = 0; j < this->n; j++) {
@@ -46,5 +57,13 @@ class KolmogorovSmirnovTest {
             i++;
         }
         this->d = std::max(this->dPlus, this->dMinus);
+    }
+
+    void calculateDa() {
+        this->da = c(this->a) / sqrt(this->n);
+    }
+
+    double c(double a) {
+        return sqrt(-log(a/2)/2);
     }
 };
