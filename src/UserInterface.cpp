@@ -128,6 +128,14 @@ void UserInterface::gotoGeneratorMenu(RandomGenerator* generator) {
         scanf("%d", &option);
         if(option == 1)
             printf("\n%f\n\n", generator->next());
+        else if(option == 2) {
+            long newSeed;
+            printf("Ingrese el valor de la nueva semilla: ");
+            scanf("%ld", &newSeed);
+            SimpleGenerator* simpleGenerator = dynamic_cast<SimpleGenerator*> (generator);
+            if(simpleGenerator != nullptr)
+                simpleGenerator->setSeed(newSeed);
+        }
     }
 }
 
