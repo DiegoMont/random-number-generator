@@ -15,7 +15,7 @@ class MixedCongruentialGenerator: public LinearCongruentialGenerator {
         bool areRelativePrimes = gcd(c, m) == 1;
         bool aDivisibleByMFactors = testADivisibility();
         bool aAndMDivisibleByFour = ((a-1) % 4 == 0) && (m % 4 == 0);
-        return areRelativePrimes && aAndMDivisibleByFour;
+        return areRelativePrimes && aAndMDivisibleByFour && aDivisibleByMFactors;
     }
 
     private:
