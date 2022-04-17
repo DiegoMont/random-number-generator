@@ -5,6 +5,7 @@
 #include "MultiplicativeCongruentialGenerator.cpp"
 #include "LecuyerGenerator.cpp"
 #include "KolmogorovSmirnovTest.cpp"
+#include "ChiSquaredTest.cpp"
 
 namespace UserInterface {
     void startApp();
