@@ -40,7 +40,7 @@ class ChiSquaredTest: public GeneratorUniformityTest {
     }
 
     void countCategories() {
-        categories = new size_t[this->k];
+        categories = new size_t[this->k]{};
         size_t currentClass = 0;
         double currentClassMax = this->r[0] + this->classSize;
         for(size_t i = 0; i < this->n; i++) {
@@ -73,7 +73,7 @@ class ChiSquaredTest: public GeneratorUniformityTest {
         double dot01[] = {6.635, 9.21, 11.345, 13.277, 15.086, 16.812, 18.475, 20.09, 21.666, 23.209, 24.725, 26.217, 27.688, 29.141, 30.578};
         double dot001[] = {10.828, 13.816, 16.266, 18.467, 20.515, 22.458, 24.322, 26.125, 27.877, 29.588, 31.264, 32.91, 34.528, 36.123, 37.697};
         double* significances[5] = {dot1, dot05, dot025, dot01, dot001};
-        Xv = dot05[degreesOfFreedom-1];
+        Xv = significances[a][degreesOfFreedom-1];
     }
 
 };
