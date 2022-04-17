@@ -15,9 +15,9 @@ class KolmogorovSmirnovTest: public GeneratorUniformityTest {
 
     void print() {
         if(this->d > this->da)
-            printf("D = %.3f > Da = %.3f \nLa hipótesis nula es rechazada\n", this->d, this->da);
+            printf("D = %.3f > Da = %.3f \nLa hiptesis nula es rechazada\n", this->d, this->da);
         else
-            printf("D = %.3f <= Da = %.3f \nLa hipótesis nula es aceptada. La muestra proviene de la distribución uniforme\n", this->d, this->da);
+            printf("D = %.3f <= Da = %.3f \nLa hipotesis nula es aceptada. La muestra proviene de la distribucion uniforme\n", this->d, this->da);
     }
 
     private:

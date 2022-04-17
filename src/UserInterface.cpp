@@ -3,7 +3,7 @@
 #include "UserInterface.h"
 
 void UserInterface::startApp() {
-    puts("SIMULADOR DE NÚMEROS RANDOM");
+    puts("SIMULADOR DE NUMEROS RANDOM");
     puts("###########################\n");
     UserInterface::selectGenerationMethod();
 }
@@ -21,14 +21,14 @@ void UserInterface::selectGenerationMethod() {
 }
 
 void UserInterface::printGenerationMethodsMenu() {
-    puts("Elige un método para generar los números aleatorios:");
+    puts("Elige un metodo para generar los numeros aleatorios:");
     puts("1. Centros Cuadrados");
     puts("2. Lineal Congruencial");
     puts("3. Congruencial Mixto");
     puts("4. Congruencial Multiplicativo");
     puts("5. Generador de L'ecuyer");
     puts("6. Salir");
-    printf("Ingresa una opción: ");
+    printf("Ingresa una opcion: ");
 }
 
 void UserInterface::startGeneratingNumbers(int selectedGenerator) {
@@ -136,12 +136,12 @@ void UserInterface::gotoGeneratorMenu(RandomGenerator* generator) {
 }
 
 void UserInterface::printGeneratorMenu() {
-    puts("Elige una acción para el generador");
-    puts("1. Siguiente número aleatorio");
+    puts("Elige una accion para el generador");
+    puts("1. Siguiente numero aleatorio");
     puts("2. Establecer semilla");
     puts("3. Evaluar");
     puts("4. Salir");
-    printf("Ingresa una opción: ");
+    printf("Ingresa una opcion: ");
 }
 
 void UserInterface::chooseSeed(RandomGenerator* generator) {
@@ -156,7 +156,7 @@ void UserInterface::chooseSeed(RandomGenerator* generator) {
 void UserInterface::evaluateGenerator(RandomGenerator* generator) {
     size_t n;
     double a;
-    printf("Cuántos números quiere generar para hacer la prueba [N]: ");
+    printf("Cuantos numeros quiere generar para hacer la prueba [N]: ");
     scanf("%ld", &n);
     printf("Ingrese un valor de significancia [a]: ");
     scanf("%lf", &a);
