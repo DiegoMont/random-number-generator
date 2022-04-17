@@ -40,7 +40,7 @@ class MixedCongruentialGenerator: public LinearCongruentialGenerator {
 
     std::vector<long>* getPrimeFactors(long limit) {
         std::vector<long>* primeFactors = new std::vector<long>();
-        bool numbers[limit + 1];
+        bool* numbers = new bool[limit+1];
         for (size_t i = 0; i < sizeof(numbers); i++)
             numbers[i] = true;
         for (long p = 2; p * p <= limit; p++){
@@ -53,6 +53,7 @@ class MixedCongruentialGenerator: public LinearCongruentialGenerator {
                 }
             }
         }
+        delete numbers;
         return primeFactors;
     }
 };
