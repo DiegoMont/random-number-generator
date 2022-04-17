@@ -2,20 +2,22 @@
 
 class KolmogorovSmirnovTest: public GeneratorUniformityTest {
     private:
+    double a;
     double dPlus;
     double dMinus;
     double d;
     double da;
 
     public:
-    KolmogorovSmirnovTest(size_t n, RandomGenerator* generator, double a): GeneratorUniformityTest(n, generator, a) {
+    KolmogorovSmirnovTest(size_t n, RandomGenerator* generator, double a): GeneratorUniformityTest(n, generator) {
+        this->a = a;
         calculateD();
         calculateDa();
     }
 
     void print() {
         if(this->d > this->da)
-            printf("D = %.3f > Da = %.3f \nLa hiptesis nula es rechazada\n", this->d, this->da);
+            printf("D = %.3f > Da = %.3f \nLa hipotesis nula es rechazada\n", this->d, this->da);
         else
             printf("D = %.3f <= Da = %.3f \nLa hipotesis nula es aceptada. La muestra proviene de la distribucion uniforme\n", this->d, this->da);
     }

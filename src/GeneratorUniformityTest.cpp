@@ -11,13 +11,11 @@ class GeneratorUniformityTest {
     protected:
     double* r;
     size_t n;
-    double a;
     
     public:
 
-    GeneratorUniformityTest(size_t n, RandomGenerator* generator, double a) {
+    GeneratorUniformityTest(size_t n, RandomGenerator* generator) {
         this->n = n;
-        this->a = a;
         generateAndSortR(generator);
     }
     virtual void print() = 0;
