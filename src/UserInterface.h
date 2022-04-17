@@ -33,4 +33,6 @@ namespace UserInterface {
     void chooseSeed(RandomGenerator* generator);
 
     void evaluateGenerator(RandomGenerator* generator);
+
+    void printSignificanceOptions();
 }

@@ -155,12 +155,34 @@ void UserInterface::chooseSeed(RandomGenerator* generator) {
 
 void UserInterface::evaluateGenerator(RandomGenerator* generator) {
     size_t n;
-    double a;
+    double aKS;
+    enum ChiSquareSignificance aCS;
     printf("Cuantos numeros quiere generar para hacer la prueba [N]: ");
     scanf("%ld", &n);
-    printf("Ingrese un valor de significancia [a]: ");
-    scanf("%lf", &a);
+    int option = -1;
+    do {
+        UserInterface::printSignificanceOptions();
+        scanf("%d", &option);
+    } while(option > 5 || option < 1 );
+    double availableSignificances[] = {0.1, 0.05, 0.025, 0.01, 0.001};
+    option--;
+    aKS = availableSignificances[option];
+    aCS = (enum ChiSquareSignificance) option;
     puts("\nKolmogorov-Smirnov");
-    KolmogorovSmirnovTest test(n, generator, a);
+    KolmogorovSmirnovTest test(n, generator, aKS);
     test.print();
+    puts("\nChi Cuadrada");
+    ChiSquaredTest test2(n, generator, aCS);
+    test2.print();
+    puts("");
+}
+
+void UserInterface::printSignificanceOptions() {
+    puts("Valores de significancia disponibles");
+    puts("1. 0.1");
+    puts("2. 0.05");
+    puts("3. 0.025");
+    puts("4. 0.01");
+    puts("5. 0.001");
+    printf("Ingrese una opcion: ");
 }
