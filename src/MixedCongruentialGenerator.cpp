@@ -53,7 +53,7 @@ class MixedCongruentialGenerator: public LinearCongruentialGenerator {
                 }
             }
         }
-        delete numbers;
+        delete[] numbers;
         return primeFactors;
     }
 };
