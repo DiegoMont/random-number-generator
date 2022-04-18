@@ -19,7 +19,7 @@ class SimpleGenerator: public RandomGenerator {
 
     double next() {
         setNextX();
-        return 1.0 * this->x / (this->m - 1);
+        return 1.0 * this->x / (this->m);
     }
 
     long getX() {

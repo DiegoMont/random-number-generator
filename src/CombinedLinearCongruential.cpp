@@ -30,7 +30,7 @@ class CombinedLinearCongruential: public RandomGenerator {
         x %= this->m;
         if(x < 0) 
             x = this->m + x;
-        return 1.0 * x / (this->m - 1);
+        return 1.0 * x / (this->m);
     }
 
 };
