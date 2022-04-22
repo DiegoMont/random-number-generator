@@ -16,7 +16,8 @@ class LinearCongruentialGenerator: public SimpleGenerator {
 
     private:
     void setNextX() {
-        this->x = (this->a * this->x + this->c) % m;
+        long long int bigResult = (1ll * this->a * this->x + this->c) % m;
+        this->x = (long int) bigResult;
     }
 };
 
