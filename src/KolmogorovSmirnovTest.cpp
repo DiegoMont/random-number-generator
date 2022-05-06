@@ -16,6 +16,7 @@ class KolmogorovSmirnovTest: public GeneratorUniformityTest {
     }
 
     void print() {
+        printf("D+ = %.3f   D- = %.3f\n", dPlus, dMinus);
         if(this->d > this->da)
             printf("D = %.3f > Da = %.3f \nLa hipotesis nula es rechazada\n", this->d, this->da);
         else
